@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 
 Route::get('/list_modul', [MainController::class, 'showModul'])->name('list_modul');
+Route::get('/community', [MainController::class, 'showComunity'])->name('community');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
