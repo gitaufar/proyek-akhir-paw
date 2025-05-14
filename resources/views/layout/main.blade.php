@@ -1519,6 +1519,11 @@
 </head>
 
 <body>
+    <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-black py-3 px-5">
+        <div class="flex flex-row items-center gap-3">
+            <img class="w-10 h-10" src="/img/logo.png" alt="Logo">
+        </div>
+    </nav>
     @yield('content')
 </body>
 
