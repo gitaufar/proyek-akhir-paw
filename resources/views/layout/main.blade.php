@@ -1522,6 +1522,7 @@
     <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
         <img src="/svg/weerausaha.svg" />
         <div class="flex flex-row items-center gap-12 group">
+
             @if (Route::is('list_modul'))
                 <div class="px-2 py-2 bg-amber-300 rounded-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -1567,10 +1568,11 @@
             @endif
         </div>
 
-        <div class="flex flex-row items-center gap-12">
-
-            <p class="text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}</p>
-        </div>
+        <a href="{{ route('dashboard') }}"
+            class="flex flex-row items-center gap-12 text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}
+            
+        </a>
+    
     </nav>
     <div class="min-w-screen min-h-screen items-center flex flex-row">
         @yield('content')
