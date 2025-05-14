@@ -13,4 +13,8 @@ class MainController extends Controller
     public function showComunity(){
         return view('community');
     }
+
+    public function showDashboard(){
+        return view('dashboard');
+    }
 }
