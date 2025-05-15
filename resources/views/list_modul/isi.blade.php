@@ -2,5 +2,8 @@
 
 @section('content')
 
+@endsection
 
-@endsection()
+@section('sidebar')
+
+@endsection

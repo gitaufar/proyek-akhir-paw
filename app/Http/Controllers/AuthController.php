@@ -43,7 +43,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Jika berhasil login
+            Auth::login(Auth::user());
             return redirect()->intended('/list_modul');
         }
 

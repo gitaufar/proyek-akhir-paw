@@ -1518,18 +1518,18 @@
     @endif
 </head>
 
-<body class="min-w-screen min-h-screen bg-black flex flex-col">
+<body class="min-w-screen min-h-screen bg-black flex flex-row font-['Poppins']">
     <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
         <img src="/svg/weerausaha.svg" />
         <div class="flex flex-row items-center gap-12 group">
-            @if (Route::is('list_modul'))
-            <div class="px-2 py-2 bg-amber-300 rounded-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path
-                        d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
-                        fill="black" />
-                </svg>
-            </div>
+            @if (Route::is('list_modul.index'))
+                <div class="px-2 py-2 bg-amber-300 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path
+                            d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
+                            fill="black" />
+                    </svg>
+                </div>
 
             <a href="{{ route('community') }}">
                 <div class="px-2 py-2 rounded-xl">
@@ -1544,15 +1544,15 @@
                 </div>
             </a>
             @else
-            <a href="{{ route('list_modul') }}">
-                <div class="px-2 py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path
-                            d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
-                            fill="white" />
-                    </svg>
-                </div>
-            </a>
+                <a href="{{ route('list_modul.index') }}">
+                    <div class="px-2 py-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path
+                                d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </a>
 
             <div class="px-2 py-2 bg-amber-300 rounded-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="30" viewBox="0 0 34 30" fill="none">
@@ -1572,15 +1572,10 @@
             <p class="text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}</p>
         </div>
     </nav>
-    <div class="min-w-screen min-h-screen items-center flex flex-row">
-        @yield('content')
-        @hasSection('sidebar')
-        <div class="w-[30%] min-h-screen bg-[#2F2B2E]">
+        <div class="w-[30%] min-h-screen bg-[#2F2B2E] py-30 pl-8 flex">
             @yield('sidebar')
         </div>
-        @endif
-
-    </div>
+        @yield('content')
 </body>
 
 </html>
