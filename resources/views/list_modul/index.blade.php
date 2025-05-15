@@ -26,8 +26,8 @@
                     </div>
                     <div>
                         <div class="flex justify-center w-full bg-white rounded-sm py-4">
-                        <p class="text-black font-semibold">Lihat Akurasi</p>
-                    </div>
+                            <p class="text-black font-semibold">Lihat Akurasi</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 
             <a href="{{ route('list_modul.index', ['selected' => $m->id]) }}">
                 <div class="px-2 py-2 rounded-xl w-[80%]
-                                        {{ $selectedId == $m->id ? 'bg-amber-300 text-black' : 'text-white' }}">
+                                                {{ $selectedId == $m->id ? 'bg-amber-300 text-black' : 'text-white' }}">
                     <h2 class="text-xl font-bold m-0 p-0">{{ $m->nama }}</h2>
                 </div>
             </a>
