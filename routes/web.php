@@ -11,6 +11,7 @@ use App\Http\Controllers\MainController;
 
 Route::get('/list_modul', [MainController::class, 'showModul'])->name('list_modul.index');
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
+Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

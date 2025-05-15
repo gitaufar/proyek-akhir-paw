@@ -21,9 +21,11 @@
                     <h1 class="text-2xl font-semibold m-0 p-0 text-white">{{ $s->nama }}</h1>
                 </div>
                 <div class="w-[19%] flex flex-col gap-1">
-                    <div class="flex justify-center w-full bg-amber-300 rounded-sm py-4">
-                        <p class="text-black font-semibold">Ambil Modul</p>
-                    </div>
+                    <a href={{ route('list_modul.materi', ['selectedSub' => $s->id]) }}>
+                        <div class="flex justify-center w-full bg-amber-300 rounded-sm py-4">
+                            <p class="text-black font-semibold">Ambil Modul</p>
+                        </div>
+                    </a>
                     <div>
                         <div class="flex justify-center w-full bg-white rounded-sm py-4">
                             <p class="text-black font-semibold">Lihat Akurasi</p>
@@ -36,12 +38,12 @@
 @endsection
 
 @section('sidebar')
-    <div class="flex flex-col gap-8 h-full w-full">
+    <div class="flex flex-col gap-8 h-full w-full pl-8">
         @foreach ($modul as $m)
 
-            <a href="{{ route('list_modul.index', ['selected' => $m->id]) }}">
-                <div class="px-2 py-2 rounded-xl w-[80%]
-                                                {{ $selectedId == $m->id ? 'bg-amber-300 text-black' : 'text-white' }}">
+            <a href="{{ route('list_modul.index', ['selectedModul' => $m->id]) }}">
+                <div
+                    class="px-2 py-2 rounded-xl w-[80%] {{ $selectedId == $m->id ? 'bg-amber-300 text-black' : 'text-white' }}">
                     <h2 class="text-xl font-bold m-0 p-0">{{ $m->nama }}</h2>
                 </div>
             </a>
