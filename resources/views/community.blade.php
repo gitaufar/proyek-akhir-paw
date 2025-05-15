@@ -1,7 +1,9 @@
 @extends('layout.main')
 
 @section('content')
-<div class="items-center flex justify-center">
-    
-</div>
+
+@endsection
+
+@section('sidebar')
+    <p class="text-white text-base font-medium font-['Poppins']">community</p>
 @endsection

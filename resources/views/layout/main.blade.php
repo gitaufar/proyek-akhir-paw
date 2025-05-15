@@ -1518,11 +1518,11 @@
     @endif
 </head>
 
-<body class="min-w-screen min-h-screen bg-black flex flex-col">
+<body class="min-w-screen min-h-screen bg-black flex flex-row font-['Poppins']">
     <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
         <img src="/svg/weerausaha.svg" />
         <div class="flex flex-row items-center gap-12 group">
-            @if (Route::is('list_modul'))
+            @if (Route::is('list_modul.index'))
                 <div class="px-2 py-2 bg-amber-300 rounded-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <path
@@ -1544,7 +1544,7 @@
                     </div>
                 </a>
             @else
-                <a href="{{ route('list_modul') }}">
+                <a href="{{ route('list_modul.index') }}">
                     <div class="px-2 py-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                             <path
@@ -1572,13 +1572,10 @@
             <p class="text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}</p>
         </div>
     </nav>
-    <div class="min-w-screen min-h-screen items-center flex flex-row">
-        @yield('content')
-        <div class="w-[30%] min-h-screen bg-[#2F2B2E]">
+        <div class="w-[30%] min-h-screen bg-[#2F2B2E] py-30 pl-8 flex">
             @yield('sidebar')
         </div>
-
-    </div>
+        @yield('content')
 </body>
 
 </html>
