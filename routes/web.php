@@ -9,8 +9,9 @@ Route::get('/', function () {
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 
-Route::get('/list_modul', [MainController::class, 'showModul'])->name('list_modul');
+Route::get('/list_modul', [MainController::class, 'showModul'])->name('list_modul.index');
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
+Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -18,7 +19,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
-// Protected route
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')</title>
+    <title>@yield('title,'Default title')</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1519,6 +1519,7 @@
 </head>
 
 <body class="min-w-screen min-h-screen bg-black flex flex-col">
+
     <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg z-100">
         <img src="/svg/weerausaha.svg" />
         <div class="flex flex-row items-center gap-12 group">
@@ -1575,7 +1576,7 @@
     <div class="w-[30%] h-screen bg-[#2F2B2E] py-30 flex overflow-y-auto">
         @yield('sidebar')
     </div>
-    @yield('content')
 </body>
+
 
 </html>
