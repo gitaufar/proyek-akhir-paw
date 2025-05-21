@@ -1519,7 +1519,7 @@
 </head>
 
 <body class="min-w-screen min-h-screen bg-black flex flex-col">
-    <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
+    <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg z-100">
         <img src="/svg/weerausaha.svg" />
         <div class="flex flex-row items-center gap-12 group">
             @if (Route::is('list_modul'))
