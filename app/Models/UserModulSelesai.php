@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Kuis extends Model
+class UserModulSelesai extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'materi_id',
-        'pertanyaan',
-        'opsi_a',
-        'opsi_b',
-        'opsi_c',
-        'opsi_d',
-        'jawaban_benar'
+        'user_id',
+        'modul_id',
+        'tanggal_selesai',
+        'nilai',
+        'created_at',
+        'updated_at',
     ];
 
     public function modul()
@@ -24,9 +22,8 @@ class Kuis extends Model
         return $this->belongsTo(Modul::class);
     }
 
-    public function pilihanJawabans()
+    public function user()
     {
-        return $this->hasMany(PilihanJawaban::class);
+        return $this->belongsTo(User::class);
     }
-
 }

@@ -1516,9 +1516,10 @@
         }
     </style>
     @endif
+   @yield('style') 
 </head>
 
-<body class="min-w-screen min-h-screen bg-black flex flex-row font-['Poppins']">
+<body class="min-w-full min-h-full bg-black flex flex-row font-['Poppins']">
     <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
         <img src="/svg/weerausaha.svg" />
         <div class="flex flex-row items-center gap-12 group">
@@ -1572,10 +1573,12 @@
             <p class="text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}</p>
         </div>
     </nav>
-        <div class="w-[30%] h-screen bg-[#2F2B2E] py-30 flex overflow-y-auto">
+        <div class="w-[30%] h-screen bg-[#2F2B2E] pt-30 flex overflow-y-auto">
             @yield('sidebar')
         </div>
         @yield('content')
+
+        @yield('script')
 </body>
 
 </html>

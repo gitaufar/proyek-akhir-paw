@@ -2,32 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Materi extends Model
 {
     use HasFactory;
 
-    // Nama tabel yang digunakan di database
-    protected $table = 'materis';
+    protected $fillable = ['tema_id', 'judul_materi', 'isi_materi'];
 
-    // Kolom yang boleh diisi
-    protected $fillable = [
-        'judul_materi_id',
-        'judul',
-        'isi_materi',
-        'created_at',
-        'updated_at'
-    ];
-
-    // Relasi ke tabel SubModul
-    public function subModul()
+    public function tema()
     {
-        return $this->belongsTo(SubModul::class);
+        return $this->belongsTo(Tema::class);
     }
 
-    // Relasi ke tabel Kuis
     public function kuis()
     {
         return $this->hasMany(Kuis::class);

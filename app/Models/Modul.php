@@ -9,17 +9,22 @@ class Modul extends Model
 {
     use HasFactory;
 
-    // Nama tabel yang digunakan di database
-    protected $table = 'moduls';
+    protected $fillable = ['level_id', 'nama_modul'];
 
-    // Kolom yang boleh diisi
-    protected $fillable = [
-        'nama',
-    ];
-
-    // Relasi ke tabel SubModul
-    public function subModuls()
+    public function level()
     {
-        return $this->hasMany(SubModul::class);
+        return $this->belongsTo(Level::class);
+    }
+
+    public function temas()
+    {
+        return $this->hasMany(Tema::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_modul_selesai')
+            ->withPivot('tanggal_selesai', 'nilai')
+            ->withTimestamps();
     }
 }
