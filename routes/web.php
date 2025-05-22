@@ -8,10 +8,13 @@ Route::get('/', function () {
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\KuisController;
 
-Route::get('/list_modul', [MainController::class, 'showModul'])->name('list_modul.index');
+Route::get('/list_modul', [MainController::class, 'showLevel'])->name('list_modul.index');
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
 Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
+Route::get('/materi/{id}', [MainController::class, 'getMateriAjax'])->name('materi');
+Route::get('/kuis', [KuisController::class, 'showKuis'])->name('kuis');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

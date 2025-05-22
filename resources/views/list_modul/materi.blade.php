@@ -1,11 +1,41 @@
 @extends('layout.main')
 
-@section('content')
+@section('style')
+    <style>
+        .isi-content h1 {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 48px;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
 
+        .isi-content {
+            text-align: justify;
+        }
+
+        #kuis-text {
+            text-align: center;
+        }
+    </style>
+@endsection
+
+@section('content')
+    <div class="w-[70%] h-screen pt-35 flex overflow-y-auto text-white flex-col isi-content gap-2 px-12">
+        <div class="w-full justify-center items-center pb-8 px-">
+            <h1 class="text-center">"{{ $materiDipilih->judul_materi }}"</h1>
+        </div>
+            <div class="flex flex-col justify-center">
+                {!! $materiDipilih->konten !!}
+            </div>
+    </div>
 @endsection
 
 @section('sidebar')
-    <div class="w-full flex flex-col">
+    <div class="w-full flex flex-col gap-5 overflow-y-auto pb-10">
         <a href={{ route('list_modul.index') }} class="ml-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
                 <path
@@ -17,7 +47,49 @@
             </svg>
         </a>
         <div class="w-full flex justify-center">
-            <h1 class="text-[1.3rem] font-bold m-0 p-0 text-white">{{$subModul->nama}}</h1>
+            <h1 class="text-[1.3rem] font-bold m-0 p-0 text-white">{{$modul->nama_modul}}</h1>
         </div>
+        <ol class="flex flex-col gap-5">
+            @foreach ($tema as $index => $t)
+                <li class="text-[1.3rem] font-semibold text-white ml-7">
+                    <button class="cursor-pointer" onclick="hideSubtema({{ $t->id }})">
+                        {{ $index + 1 }}. {{ $t->judul_tema }}
+                    </button>
+                    <ul data-subtema-id="{{ $t->id }}" @class([
+                        'hidden' => $selectedTema != $t->id
+                    ])>
+                        @foreach ($materis as $m)
+                            @if ($m->tema_id == $t->id)
+                                <a href="{{ route('list_modul.materi', ['mod' => $modul->id, 'tem' => $t->id, 'mat' => $m->id]) }}">
+                                    <li @class([
+                                        'py-3 mx-4 px-4 cursor-pointer',
+                                        'text-black bg-amber-300 rounded-md' => $selectedMateri == $m->id,
+                                        'text-white' => $selectedMateri != $m->id
+                                    ]) data-subtema-id="{{ $t->id }}">
+                                        <p class="text-[1.1rem] font-bold">
+                                            {{ $m->judul_materi }}
+                                        </p>
+                                    </li>
+                                </a>
+
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+            @endforeach
+        </ol>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        const hideSubtema = (subtema) => {
+            document.querySelector(`[data-subtema-id="${subtema}"]`).classList.toggle('hidden');
+        }
+
+        const button = document.getElementById('btn-kuis');
+        button.addEventListener('click', () => {
+            window.location.href = "{{ route('kuis', ['mod' => $modul->id]) }}";
+        })
+    </script>
 @endsection
