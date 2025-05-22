@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')</title>
+    <title>@yield('Dashboard')</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1518,18 +1518,21 @@
     @endif
 </head>
 
-<body class="min-w-screen min-h-screen bg-black flex flex-col">
-    <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg z-100">
+
+{{-- Konfigurasi body --}}
+
+<body class="min-w-screen min-h-screen bg-black flex flex-col overflow-x-hidden">
+    <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg z-100"> {{-- Untuk navbar--}}
         <img src="/svg/weerausaha.svg" />
-        <div class="flex flex-row items-center gap-12 group">
-            <div class="px-2 py-2">
+        <div class="flex flex-row items-center gap-12 group"> {{-- Parent untuk 2 komponen di tengah navbar--}}
+            <div class="px-2 py-2"> {{-- Child 1 --}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path
                         d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
                         fill="white" />
                 </svg>
             </div>
-            <div class="px-2 py-2 bg-amber-300 rounded-xl">
+            <div class="px-2 py-2 bg-amber-300 rounded-xl"> {{-- Child 1 --}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path
                         d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
@@ -1537,12 +1540,42 @@
                 </svg>
             </div>
         </div>
+        {{-- Kontainer Profile--}}
         <div class="w-80 h-14 flex flex-box items-center gap-2">
             <div class="border-blue-950 rounded-full bg-amber-300 w-14 h-14"></div>
             <div class="w-60 text-xl text-white font-['Poppins']">Lorem ipsum dolor sit.</div>
         </div>
-
     </nav>
+
+    {{-- Super parent content container --}}
+    <div class=" relative w-screen h-screen mt-28 flex flex-col items-center justify-center">
+        {{-- parent content container --}}
+        <div class="w-3/4 h-screen flex flex-col items-center justify-center ">
+            <div class="w-[calc(100%-2rem)] min-h-screen flex flex-col gap-3">
+                {{-- child content container 1 --}}
+                <div class="w-full h-30 rounded-2xl bg-[#2F2B2E] pt-10 flex flex-row justify-start items-center gap-2 py-5 px-10">
+                    {{-- child content 1 --}}
+                    <div class="top-0 w-20 h-20 bg-white rounded-full mr-5">
+                    </div>
+                    <div class="top-0 w-100 h-20 bg-white rounded-2xl">
+                    </div>
+                </div>
+                {{-- child content container 2 --}}
+                <div class="w-full h-60 rounded-2xl shadow-lg bg-[#2F2B2E] pt-10">
+                </div>
+                {{-- child content container 3 --}}
+                <div class="w-full h-80 rounded-2xl shadow-lg bg-[#2F2B2E] pt-10">
+                </div>
+                {{-- child content container 4 --}}
+                <div class="w-full h-60 rounded-2xl shadow-lg bg-[#2F2B2E] pt-10">
+                </div>
+                {{-- child content container 5 --}}
+                <div class="w-full h-200 rounded-2xl shadow-lg bg-[#2F2B2E] pt-10">
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
     @yield('content')
