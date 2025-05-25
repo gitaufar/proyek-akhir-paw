@@ -8,6 +8,7 @@
         <p class="justify-start text-amber-300 text-5xl font-bold font-['Poppins']">LOGIN</p>
 
         <form method="POST" action="{{ route('login.submit') }}" class="flex flex-col mt-12 gap-8" name="login">
+            @csrf
             <div class="flex flex-col">
                 <p class="text-white text-base font-bold font-['Poppins'] w-full text-start">Email</p>
                 <input type="email" name="email"

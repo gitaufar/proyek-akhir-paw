@@ -1553,11 +1553,11 @@
         <div class="w-3/4 h-screen flex flex-col items-center justify-center ">
             <div class="w-[calc(100%-2rem)] min-h-screen flex flex-col gap-3">
                 {{-- child content container 1 --}}
-                <div class="w-full h-30 rounded-2xl bg-[#2F2B2E] pt-10 flex flex-row justify-start items-center gap-2 py-5 px-10">
+                <div class="w-full h-[120px] rounded-2xl bg-[#2F2B2E] flex flex-row justify-start items-center gap-2 px-10">
                     {{-- child content 1 --}}
-                    <div class="top-0 w-20 h-20 bg-white rounded-full mr-5">
+                    <div class="w-15 h-15 my-3 bg-green-900 rounded-full mr-5">
                     </div>
-                    <div class="top-0 w-100 h-20 bg-white rounded-2xl">
+                    <div class="w-280 h-15 my-3  opacity-20 bg-white rounded-4xl">
                     </div>
                 </div>
                 {{-- child content container 2 --}}
