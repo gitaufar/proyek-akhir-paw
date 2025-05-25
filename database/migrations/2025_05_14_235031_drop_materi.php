@@ -11,7 +11,12 @@ return new class extends Migration
      */
      public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
+
+        Schema::dropIfExists('kuis');
         Schema::dropIfExists('materis');
+
+        Schema::enableForeignKeyConstraints();
     }
 
 

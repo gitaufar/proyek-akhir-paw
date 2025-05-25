@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('materis', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('judul_materi_id')->constrained('judul_materis')->onDelete('cascade');
+            $table->string('judul');
+            $table->text('isi_materi');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('materis');
     }
 };

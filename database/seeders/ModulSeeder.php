@@ -13,15 +13,6 @@ class ModulSeeder extends Seeder
      */
     public function run()
     {
-        $moduls = [
-            'Modul Pengenalan',
-            'Modul Pemula',
-            'Modul Intermediete',
-            'Modul Expert',
-        ];
-
-        foreach ($moduls as $nama) {
-            Modul::create(['nama' => $nama,'created_at' => now(),'updated_at' => now()]);
-        }
+        Modul::create(['level_id' => 1, 'nama_modul' => 'Dasar Dasar Kewirausahaan','deskripsi' => 'Pada modul ini anda akan belajar fundamental dari wirausaha','created_at' => now(),'updated_at' => now()]);
     }
 }

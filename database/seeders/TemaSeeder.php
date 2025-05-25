@@ -2,28 +2,26 @@
 
 namespace Database\Seeders;
 
-use App\Models\JudulMateri;
+use App\Models\Tema;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class JudulMateriSeeder extends Seeder
+class TemaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    
     public function run(): void
     {
-        $judul = [
+        $tema = [
         'Apa Itu Wirausaha?',
         'Mindset Wirausaha?',
         'Video Rangkuman',
         'Kuis'
         ];
 
-        foreach ($judul as $j) {
-            JudulMateri::create(['sub_modul_id' => 1, 'judul' => $j,'created_at' => now(),'updated_at' => now()]);
+        foreach ($tema as $j) {
+            Tema::create(['modul_id' => 1, 'judul_tema' => $j,'created_at' => now(),'updated_at' => now()]);
         }
-
     }
 }

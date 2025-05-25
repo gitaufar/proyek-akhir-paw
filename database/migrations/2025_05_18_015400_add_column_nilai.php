@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-        Schema::dropIfExists('materis');
+        Schema::table('user_modul_selesai', function (Blueprint $table) {
+            $table->integer('nilai')->nullable()->after('tanggal_selesai');
+        });
     }
 
     /**
@@ -20,12 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::create('materis', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('judul_materi_id')->constrained('judul_materis')->onDelete('cascade');
-            $table->string('judul');
-            $table->text('isi_materi');
-            $table->timestamps();
+        Schema::table('user_modul_selesai', function (Blueprint $table) {
+            $table->dropColumn('nilai');
         });
     }
 };
