@@ -57,4 +57,13 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+
+    public function moduls()
+{
+    return $this->belongsToMany(Modul::class, 'user_modul_selesai')
+                ->withPivot('tanggal_selesai', 'nilai')
+                ->withTimestamps();
+}
+
+
 }
