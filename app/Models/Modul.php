@@ -9,7 +9,7 @@ class Modul extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['level_id', 'nama_modul'];
+    protected $fillable = ['level_id', 'nama_modul', 'deskripsi'];
 
     public function level()
     {
@@ -21,6 +21,10 @@ class Modul extends Model
         return $this->hasMany(Tema::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_modul_selesai')
