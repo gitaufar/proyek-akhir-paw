@@ -12,6 +12,24 @@
                 <input type="text" name="nama_modul" class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
+            <!-- Deskripsi -->
+            <div class="mb-4">
+                <label class="block text-white text-sm font-bold mb-2">Deskripsi</label>
+                <textarea name="deskripsi" rows="3" class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+            </div>
+
+            <!-- Pilih Level -->
+            <div class="mb-4">
+                <label class="block text-white text-sm font-bold mb-2">Pilih Level</label>
+                <select name="level_id" class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
+                </select>
+            </div>
+
+            
             <!-- Submodul dan Materi -->
             <div class="mb-4">
                 <label class="block text-white text-sm font-bold mb-2">Submodul, Judul Materi, dan Materi</label>

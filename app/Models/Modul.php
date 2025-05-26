@@ -9,7 +9,7 @@ class Modul extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['level_id', 'nama_modul', 'deskripsi'];
+    protected $fillable = ['level_id', 'nama_modul', 'deskripsi', 'created_by'];
 
     public function level()
     {

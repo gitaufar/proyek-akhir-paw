@@ -34,13 +34,14 @@ class ModulController extends Controller
         ]);
 
         $modul = Modul::create([
-            'level_id' => 1,
+            'level_id' => $request->level_id,
             'nama_modul' => $request->nama_modul,
             'created_by' => Auth::id(),
-            'deskripsi' => 'kocak',
+            'deskripsi' => $request->deskripsi,
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
 
         foreach ($request->submoduls as $submodul) {
             $tema = Tema::create([
@@ -74,5 +75,60 @@ class ModulController extends Controller
         return back()->with('success', 'Modul berhasil dihapus');
     }
 
-    // (opsional) Tambahkan edit & update jika dibutuhkan
+    // Kurang update delete
+    public function edit($id)
+    {
+        $modul = Modul::with('temas.materis')->findOrFail($id);
+        return view('admin.modul.edit', compact('modul'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_modul' => 'required|string',
+            'submoduls' => 'required|array',
+            'submoduls.*.judul_tema' => 'required|string',
+            'submoduls.*.materis' => 'required|array',
+            'submoduls.*.materis.*.judul_materi' => 'required|string',
+            'submoduls.*.materis.*.konten' => 'required|string',
+        ]);
+
+        $modul = Modul::findOrFail($id);
+        $modul->update([
+            'nama_modul' => $request->nama_modul,
+            'deskripsi' => $request->deskripsi,
+            'level_id' => $request->level_id,
+            'updated_at' => now()
+        ]);
+
+
+        // Hapus semua tema & materi lama
+        foreach ($modul->temas as $tema) {
+            $tema->materis()->delete();
+            $tema->delete();
+        }
+
+        // Buat ulang tema & materi
+        foreach ($request->submoduls as $submodul) {
+            $tema = Tema::create([
+                'modul_id' => $modul->id,
+                'judul_tema' => $submodul['judul_tema'],
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+
+            foreach ($submodul['materis'] as $materi) {
+                Materi::create([
+                    'tema_id' => $tema->id,
+                    'judul_materi' => $materi['judul_materi'],
+                    'konten' => $materi['konten'],
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+        }
+
+        return redirect()->route('modul.index')->with('success', 'Modul berhasil diperbarui');
+    }
+
 }
