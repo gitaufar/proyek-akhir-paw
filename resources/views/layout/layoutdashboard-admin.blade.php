@@ -1522,48 +1522,475 @@
         {{-- Kontainer Profile--}}
         <div class="w-100 h-14 flex items-center gap-2 ">
             <div class="border-blue-950 rounded-full bg-amber-300 w-14 h-14"></div>
-            <div class="w-80 text-xl text-white font-['Poppins']">Lorem ipsum dolor sit(Admin)</div>
+            <div class="w-80 text-xl text-white font-['Poppins']">Aji Saka Kartosuro W(Admin)</div>
         </div>
     </nav>
-
-
 
     {{-- Side bar --}}
     <div class="absolute w-1/4 h-screen bg-[#2F2B2E] flex">
         <div class="mt-40 w-full flex flex-col items-center gap-10">
-            <div class="w-3/4 h-20 flex flex-row bg-amber-300 rounded-xl">
-                <div class="w-20 h-20">
+            <div class="w-3/4 h-15 flex flex-row bg-amber-300 rounded-xl">
+                <div class="w-15 h-15">
                     <svg xmlns="http://www.w3.org/2000/svg" width="full" height="full" viewBox="0 0 40 40" fill="none">
                         <path
                             d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
                             fill="black" />
                     </svg>
                 </div>
-                <div class="w-60 h-20  ">
-                    <p class="w-80 text-2xl font-bold text-black font-['Poppins'] ml-3 mt-5">Modul</p>
+                <div class="w-60 h-20 items-center">
+                    <p class="w-80 text-2xl font-semibold text-black font-['Poppins'] ml-3 mt-3">Modul</p>
                 </div>
             </div>
             <div class="bg-[#2F2B2E] w-3/4 h-20 flex flex-row">
-                <div class="w-20 h-20 ">
-                    <svg class="w-35 h-35" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 40 40" stroke-width="1.5" stroke="white" class="size-6">
+                <div class="w-15 h-15 ">
+                    <svg class="w-30 h-30" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 40 40" stroke-width="1.5" stroke="white" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z fill=" black" />
                     </svg>
                 </div>
                 <div class="w-60 h-20">
-                    <p class="w-80 text-2xl font-bold text-white font-['Poppins'] ml-3 mt-5">User</p>
+                    <p class="w-80 text-2xl font-semi text-white font-['Poppins'] ml-4 mt-5">User</p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="absolute w-1/4 h-screen mt-200 bg-[#2F2B2E] flex">
+    </div>
+
 
     {{-- Main container --}}
     <div class="ml-[25%] w-3/4 flex flex-col items-center justify-start h-screen">
+        {{-- Child container 1 --}}
         <div class="top-0 w-2/3 h-13 absolute  mt-40 flex flex-row justify-between items-center ">
             <div class="w-80 text-2xl font-bold text-white font-['Poppins'] ml-3">Daftar Modul</div>
-            <div class="w-80 h-full bg-white">asda
+            <div class="w-80 h-full bg-amber-300 rounded-xl flex flex-row justify-between items-center">
+                <div class="w-20 h-full  flex items-center justify-end ">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </div>
+                <div class="w-70 h-full  flex items-center justify-center">
+                    <p class="w-80 text-2xl font-medium text-black font-['Poppins'] ml-3">Tambahkan modul</p>
+                </div>
             </div>
         </div>
+        {{-- Child container 2 --}}
+        <div class="absolute w-2/3 h-20 mt-60 bg-amber-300 rounded-xl flex flex-row justify-start items-center gap-3">
+            {{-- Search --}}
+            <div class="ml-2 w-100 h-11 bg-black/30 rounded-xl flex flex-row justify-start items-center gap-3">
+                <div class="w-15 h-full flex items-center justify-start">
+                    <svg class="ml-6 w-8 h-8 opacity-60" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                <p class="w-80 text-2xl font-medium text-black/60 font-['Poppins'] ml-3">Cari modul</p>
+            </div>
+            {{-- Filter --}}
+            <div class="w-70 h-11 bg-black/30 rounded-xl flex flex-row justify-start items-center">
+                <div class="w-60 h-full  flex items-center justify-start">
+                    <p class="w-80 text-2xl font-medium text-black/60 font-['Poppins'] ml-3">Filter</p>
+                </div>
+                <div class="w-20 h-full flex items-center justify-start">
+                    <svg class="rotate-180 opacity-60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M24 22h-24l12-20z" />
+                    </svg>
+                </div>
+            </div>
+            {{-- Urutkan --}}
+            <div class="w-70 h-11 bg-black/30 rounded-xl flex flex-row justify-start items-center">
+                <div class="w-60 h-full  flex items-center justify-start">
+                    <p class="w-80 text-2xl font-medium text-black/60 font-['Poppins'] ml-3">Urutkan</p>
+                </div>
+                <div class="w-20 h-full flex items-center justify-start">
+                    <svg class="rotate-180 opacity-60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M24 22h-24l12-20z" />
+                    </svg>
+                </div>
+            </div>
+            {{-- Cari Tombol --}}
+            <div class="w-29 h-11 bg-[#2F2B2E] rounded-xl flex flex-row justify-center items-center">
+                <p class="text-2xl font-medium text-white font-['Poppins']">Cari</p>
+            </div>
+        </div>
+        {{-- Child container 3 --}}
+        <div class="absolute w-2/3 h-250 mt-100 bg-amber-300 rounded-xl flex flex-col justify-start gap-3">
+            {{-- Container judul (No, jdulModul, dll)--}}
+            <div class="w-full h-10 mt-10 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">NO</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">JUDUL MODUL</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">KATEGORI</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">PEMBUAT</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">TANGGAL UPLOAD</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">JUMLAH AKSES</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-medium text-black font-['Poppins']">STATUS</p>
+                </div>
+            </div>
+            <div class="w-full h-1 bg-black/30 flex flex-row justify-between items-center"></div>
+        </div>
+
+        {{-- Container isi content modul --}}
+        <div class="absolute w-2/3 h-250  mt-126 rounded-b flex flex-col justify-start gap-3">
+            {{-- Row 1 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 2 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 3 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 4 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 5 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 6 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 7 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {{-- Row 8 --}}
+            <div class="w-full h-20 flex flex-row justify-start items-center gap-2">
+                <div class="w-10 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">1</p>
+                </div>
+                <div class="w-43 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Modul 1</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Kategori A</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Author's A</p>
+                </div>
+                <div class="w-54 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">12/03/2024</p>
+                </div>
+                <div class="w-45 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">221</p>
+                </div>
+                <div class="w-30 h-full flex justify-center items-center">
+                    <p class="text-xl font-light text-black font-['Poppins']">Uploaded</p>
+                </div>
+                <div class="w-28 h-full flex justify-center items-center gap-1">
+                    <div class="w-8 h-8 flex justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7.127 22.562l-7.127 1.438 1.438-7.128 5.689 5.69zm1.414-1.414l11.228-11.225-5.69-5.692-11.227 11.227 5.689 5.69zm9.768-21.148l-2.816 2.817 5.691 5.691 2.816-2.819-5.691-5.689z" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m20.015 6.506h-16v14.423c0 .591.448 1.071 1 1.071h14c.552 0 1-.48 1-1.071 0-3.905 0-14.423 0-14.423zm-5.75 2.494c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-4.5 0c.414 0 .75.336.75.75v8.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-8.5c0-.414.336-.75.75-.75zm-.75-5v-1c0-.535.474-1 1-1h4c.526 0 1 .465 1 1v1h5.254c.412 0 .746.335.746.747s-.334.747-.746.747h-16.507c-.413 0-.747-.335-.747-.747s.334-.747.747-.747zm4.5 0v-.5h-3v.5z" fill-rule="nonzero" />
+                        </svg>
+                    </div>
+                    <div class="w-8 h-8  flex justify-center items-center">
+                        <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-25 bg-red-600 flex flex-row justify-end items-center gap-2">
+                <div class="w-100 h-10 bg-red-100 mr-5 flex flex-row justify-start items-center gap-2">
+                    <div class="w-55 h-full bg-blue-400 flex flex-row justify-start items-center gap-5">
+                        <p class="text-xl font-light font-['Poppins']">Rows per page: 8</p>
+                        <svg class="w-5 h-5 rotate-180 fill-black/40" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m2.095 19.882 9.248-16.5c.133-.237.384-.384.657-.384.272 0 .524.147.656.384l9.248 16.5c.064.115.096.241.096.367 0 .385-.309.749-.752.749h-18.496c-.44 0-.752-.36-.752-.749 0-.126.031-.252.095-.367z" />
+                        </svg>
+                    </div>
+                    <div class="w-25 h-full bg-blue-400 flex flex-row justify-start items-center gap-2">
+                        <p class="text-xl font-light font-['Poppins']">1/8 of 120</p>
+                    </div>
+                    <div class="w-9 h-full bg-blue-400 flex flex-row justify-start items-center gap-2">
+                    </div>
+                    <div class="w-9 h-full  bg-blue-400 flex flex-row justify-start items-center gap-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
     @yield('content')
 </body>
