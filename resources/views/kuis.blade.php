@@ -146,7 +146,7 @@
                     setTimeout(() => {
                         loadJawaban(data);
                         loadSoal(soalKuis[quizSekarang]);
-                    }, 500); // Delay 500ms
+                    }, 200); // Delay 500ms
                 })
                 .catch(error => console.error("Gagal ambil jawaban:", error));
         }

@@ -28,13 +28,28 @@ class KuisController extends Controller
 
     public function postJawaban(Request $request)
     {
-        // Validasi data jika perlu
         $validated = $request->validate([
             'idKuis' => 'required|integer',
             'idUser' => 'required|integer',
             'isBenar' => 'required|boolean',
             'jawaban' => 'required|string',
         ]);
+
+        $jawaban = UserKuis::where('kuis_id', $validated['idKuis'])
+            ->where('user_id', $validated['idUser'])
+            ->first();
+
+        if ($jawaban) {
+            $jawaban->update([
+                'jawaban_user' => $validated['jawaban'],
+                'is_benar' => $validated['isBenar'],
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Jawaban berhasil diperbarui'
+            ]);
+        }
 
         $jawaban = new UserKuis();
         $jawaban->kuis_id = $validated['idKuis'];
@@ -48,5 +63,6 @@ class KuisController extends Controller
             'message' => 'Jawaban berhasil disimpan'
         ]);
     }
+
 
 }

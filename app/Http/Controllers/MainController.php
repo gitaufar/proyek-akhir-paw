@@ -22,6 +22,10 @@ class MainController extends Controller
         return view('list_modul.index', compact('level', 'modul', 'selectedIdLevel', 'selectedLevel'));
     }
 
+    public function showAkurasi(){
+        return view('list_modul.akurasi');
+    }
+
     public function getTema($idSubModul)
     {
         $judulMateris = Tema::where('modul_id', $idSubModul)->get();
