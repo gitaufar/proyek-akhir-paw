@@ -27,9 +27,11 @@
                         </div>
                     </a>
                     <div>
-                        <div class="flex justify-center w-full bg-white rounded-sm py-4">
-                            <p class="text-black font-semibold">Lihat Akurasi</p>
-                        </div>
+                        <a href={{ route('list_modul.akurasi', ['mod' => $s->id]) }}>
+                            <div class="flex justify-center w-full bg-white rounded-sm py-4 cursor-pointer">
+                                <p class="text-black font-semibold">Lihat Akurasi</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
