@@ -11,7 +11,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\KuisController;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::get('/list_modul', [MainController::class, 'showModul'])->name('list_modul.index');
+Route::get('/list_modul', [MainController::class, 'showLevelphp '])->name('list_modul.index');
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
 Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
 Route::get('/materi/{id}', [MainController::class, 'getMateriAjax'])->name('materi');
@@ -32,4 +32,12 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard-admin', function () {
     return view('dashboard_admin');
+})->middleware('auth');
+
+Route::get('/dashboard-admin-user', function () {
+    return view('dashboard_admin_user');
+})->middleware('auth');
+
+Route::get('/dashboard-admin-quiz', function () {
+    return view('dashboard_admin_quiz');
 })->middleware('auth');
