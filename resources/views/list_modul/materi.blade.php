@@ -28,9 +28,9 @@
         <div class="w-full justify-center items-center pb-8 px-">
             <h1 class="text-center">"{{ $materiDipilih->judul_materi }}"</h1>
         </div>
-            <div class="flex flex-col justify-center">
-                {!! $materiDipilih->konten !!}
-            </div>
+        <div class="flex flex-col justify-center">
+            {!! $materiDipilih->konten !!}
+        </div>
     </div>
 @endsection
 
@@ -88,8 +88,11 @@
         }
 
         const button = document.getElementById('btn-kuis');
-        button.addEventListener('click', () => {
-            window.location.href = "{{ route('kuis', ['mod' => $modul->id]) }}";
-        })
+        if (button) {
+            button.addEventListener('click', () => {
+                window.location.href = "{{ route('kuis', ['mod' => $modul->id]) }}";
+            })
+        }
+
     </script>
 @endsection

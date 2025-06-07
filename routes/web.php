@@ -16,9 +16,12 @@ Route::get('/community', [MainController::class, 'showComunity'])->name('communi
 Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
 Route::get('/materi/{id}', [MainController::class, 'getMateriAjax'])->name('materi');
 Route::get('/kuis', [KuisController::class, 'showKuis'])->name('kuis');
+Route::get('/api/jawaban/{idKuis}', [KuisController::class, 'getJawaban']);
+
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/api/jawaban', [KuisController::class, 'postJawaban']);
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
