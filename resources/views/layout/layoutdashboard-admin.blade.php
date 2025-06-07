@@ -1970,28 +1970,31 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full h-25 bg-red-600 flex flex-row justify-end items-center gap-2">
-                <div class="w-100 h-10 bg-red-100 mr-5 flex flex-row justify-start items-center gap-2">
-                    <div class="w-55 h-full bg-blue-400 flex flex-row justify-start items-center gap-5">
+            <div class="w-full h-25 flex flex-row justify-end items-center gap-2">
+                <div class="w-100 h-10 mr-5 flex flex-row justify-start items-center gap-2">
+                    <div class="w-55 h-full flex flex-row justify-start items-center gap-5">
                         <p class="text-xl font-light font-['Poppins']">Rows per page: 8</p>
                         <svg class="w-5 h-5 rotate-180 fill-black/40" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="m2.095 19.882 9.248-16.5c.133-.237.384-.384.657-.384.272 0 .524.147.656.384l9.248 16.5c.064.115.096.241.096.367 0 .385-.309.749-.752.749h-18.496c-.44 0-.752-.36-.752-.749 0-.126.031-.252.095-.367z" />
                         </svg>
                     </div>
-                    <div class="w-25 h-full bg-blue-400 flex flex-row justify-start items-center gap-2">
+                    <div class="w-25 h-full flex flex-row justify-start items-center gap-2">
                         <p class="text-xl font-light font-['Poppins']">1/8 of 120</p>
                     </div>
-                    <div class="w-9 h-full bg-blue-400 flex flex-row justify-start items-center gap-2">
+                    <div class="w-9 h-full flex flex-row justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                        </svg>
                     </div>
-                    <div class="w-9 h-full  bg-blue-400 flex flex-row justify-start items-center gap-2">
+                    <div class="w-9 h-full  flex flex-row justify-end items-center">
+                        <svg class="rotate-180 left-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-
     @yield('content')
 </body>
 
