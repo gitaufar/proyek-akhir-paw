@@ -24,7 +24,7 @@
 @endsection
 
 @section('content')
-    <div class="w-[70%] h-screen pt-35 flex overflow-y-auto text-white flex-col isi-content gap-2 px-12">
+    <div class="w-[70%] h-screen pt-35 flex overflow-y-auto text-white flex-col isi-content gap-2 px-10">
         <div class="w-full justify-center items-center pb-8 px-">
             <h1 class="text-center">"{{ $materiDipilih->judul_materi }}"</h1>
         </div>

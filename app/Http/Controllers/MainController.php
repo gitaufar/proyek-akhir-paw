@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Modul;
 use App\Models\SubModul;
 use App\Models\JudulMateri;
+use App\Models\UserModulSelesai;
 
 class MainController extends Controller
 {
@@ -18,8 +19,10 @@ class MainController extends Controller
         $level = Level::all();
         $selectedIdLevel = $request->query('lev', 1);
         $modul = Modul::where('level_id', $selectedIdLevel)->get();
+        $userId = auth()->user()->id;
+        $userModulSelesai = UserModulSelesai::where('user_id', $userId)->get();
         $selectedLevel = Level::find($selectedIdLevel);
-        return view('list_modul.index', compact('level', 'modul', 'selectedIdLevel', 'selectedLevel'));
+        return view('list_modul.index', compact('userModulSelesai','level', 'modul', 'selectedIdLevel', 'selectedLevel'));
     }
 
     public function getTema($idSubModul)
@@ -49,5 +52,6 @@ class MainController extends Controller
     {
         return view('dashboard');
     }
+
 
 }

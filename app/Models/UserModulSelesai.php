@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class UserModulSelesai extends Model
 {
     use HasFactory;
+    protected $table = 'user_modul_selesai';
     protected $fillable = [
         'user_id',
         'modul_id',

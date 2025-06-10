@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,20 +15,70 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        /*
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-        */
-        
-        $this->call(\Database\Seeders\GuestUserSeeder::class);
-        $this->call(\Database\Seeders\LevelSeeder::class);
+        // 1. Buat semua user terlebih dahulu dengan cara yang aman (update or create)
+        // Ini mencegah error "duplicate entry" jika seeder dijalankan lebih dari sekali.
+        $irfan = User::updateOrCreate(
+            ['email' => 'irfan@example.com'], // Cari user dengan email ini
+            [                             // Jika tidak ada, buat dengan data ini (atau update jika ada)
+                'name' => 'Irfan Maulana',
+                'password' => 'password',
+                'role' => 'user',
+            ]
+        );
 
-        // Panggil seeder modul, tema, materi
-        $this->call(\Database\Seeders\ModulSeeder::class);
-        $this->call(\Database\Seeders\TemaSeeder::class);
-        $this->call(\Database\Seeders\MateriSeeder::class);
+        User::updateOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin User',
+                'password' => 'password',
+                'role' => 'admin',
+            ]
+        );
+        
+        // Buat 10 user lainnya. Factory akan memastikan email mereka unik.
+        User::factory(10)->create(); 
+
+        // Ambil SEMUA user yang ada di database ke dalam satu collection
+        $allUsers = User::all();
+
+        // 2. Buat postingan-postingan
+        // Menggunakan firstOrCreate untuk postingan utama agar tidak duplikat juga
+        $mainPost = Post::firstOrCreate(
+            [
+                'user_id' => $irfan->id,
+                'content' => 'Gan mau nanya, ada tips n trik wirausaha sambil kuliah ngga ya?',
+            ],
+            [
+                'created_at' => '2025-04-15 13:00:00',
+            ]
+        );
+
+        // Buat 20 postingan acak dari semua user yang ada
+        Post::factory(20)->recycle($allUsers)->create();
+
+        // Ambil SEMUA post yang ada di database
+        $allPosts = Post::all();
+
+        // Hapus komentar dan like lama agar data tetap konsisten setiap kali seeding
+        DB::table('comments')->delete();
+        DB::table('likes')->delete();
+
+        // 3. Buat komentar-komentar acak
+        Comment::factory(50)->recycle($allPosts)->recycle($allUsers)->create();
+
+        // 4. Buat "likes" secara acak
+        foreach ($allPosts as $post) {
+            // Pastikan tidak mengambil user lebih banyak dari yang tersedia
+            $likeCount = rand(1, min(5, $allUsers->count()));
+            $usersWhoLiked = $allUsers->random($likeCount)->pluck('id');
+            
+            foreach ($usersWhoLiked as $userId) {
+                DB::table('likes')->insertOrIgnore([
+                    'user_id' => $userId,
+                    'post_id' => $post->id,
+                    'created_at' => now(),
+                ]);
+            }
+        }
     }
 }
