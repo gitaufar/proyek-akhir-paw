@@ -34,6 +34,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard-admin', function () {
         return view('dashboard_admin');
     });
+    Route::get('/dashboard-admin-profile', function () {
+        return view('dashboard_admin_user');
+    });
+    Route::get('/dashboard-admin-quiz', function () {
+        return view('dashboard_admin_quiz');
+    });
+
 
     // Akurasi Kuis
     Route::get('/api/akurasi/{modulId}', [KuisController::class, 'getAkurasi'])->name('akurasi');
