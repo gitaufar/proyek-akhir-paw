@@ -11,11 +11,45 @@ use Illuminate\Support\Facades\Auth;
 
 class ModulController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $moduls = Modul::with('level', 'user')->latest()->get();
+        $query = Modul::with('level', 'user');
+
+        if ($request->has('search') && $request->search !== null) {
+            $query->where('nama_modul', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('level')) {
+            $query->where('level_id', $request->level);
+        }
+
+        if ($request->filled('sort')) {
+            switch ($request->sort) {
+            case 'nama_modul':
+                $query->orderByRaw('LOWER(nama_modul) asc');
+                break;
+            case 'level_id':
+                $query->orderBy('level_id');
+                break;
+            case 'created_by':
+                $query->orderBy('created_by');
+                break;
+            case 'updated_at':
+                $query->orderByDesc('updated_at');
+                break;
+        }
+
+        } else {
+            $query->latest();
+        }
+
+        $moduls = $query->get();
+
         return view('admin.modul.index', compact('moduls'));
     }
+
+
+
 
     public function create()
     {

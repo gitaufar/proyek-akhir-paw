@@ -5,8 +5,76 @@
     <div class="max-w-6xl mx-auto p-6 rounded-lg shadow-md">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold">Daftar Modul</h2>
-            <a href="{{ route('modul.create') }}" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded text-white">+ Tambah Modul</a>
+            <a href="{{ route('modul.create') }}" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded text-white font-semibold">+ Tambah Modul</a>
         </div>
+                <div class="w-full bg-amber-300 text-black rounded-lg p-4 mb-6">
+            <form action="{{ route('modul.index') }}" method="GET" class="flex flex-col md:flex-row md:items-center gap-3">
+                <div class="relative w-full md:flex-1">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="w-5 h-5 text-black opacity-60" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ request('search') }}"
+                        placeholder="Cari modul"
+                        class="text-sm w-full pl-10 pr-4 py-2 rounded-lg bg-black/30 focus:outline-none focus:ring-2 focus:ring-black font-semibold"
+                    >
+                </div>
+
+                <!-- Dropdown filter level -->
+                <div class="flex flex-col md:flex-row gap-3 w-full md:w-auto">
+                    <div class="relative w-full md:w-60">
+                        <select
+                            name="level"
+                            class="text-sm w-full py-2 px-3 pr-10 rounded-lg bg-black/30 text-black/60 font-semibold appearance-none focus:outline-none focus:ring-2 focus:ring-black"
+                        >
+                            <option value="">Semua Kategori</option>
+                            <option value="1" {{ request('level') == '1' ? 'selected' : '' }}>Modul Pengenalan</option>
+                            <option value="2" {{ request('level') == '2' ? 'selected' : '' }}>Modul Pemula</option>
+                            <option value="3" {{ request('level') == '3' ? 'selected' : '' }}>Modul Intermediate</option>
+                            <option value="4" {{ request('level') == '4' ? 'selected' : '' }}>Modul Expert</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                            <svg class="w-2.5 h-2.5 text-black/60" viewBox="0 0 10 6" fill="currentColor">
+                                <path d="M0 0L5 6L10 0H0Z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown sort -->
+                    <div class="relative w-full md:w-60">
+                        <select
+                            name="sort"
+                            class="text-sm w-full py-2 px-3 pr-10 rounded-lg bg-black/30 text-black/60 font-semibold appearance-none focus:outline-none focus:ring-2 focus:ring-black"
+                        >   
+                            <option value="">Urutkan Berdasarkan</option>
+                            <option value="nama_modul" {{ request('sort') == 'nama_modul' ? 'selected' : '' }}>Judul Modul</option>
+                            <option value="level_id" {{ request('sort') == 'level_id' ? 'selected' : '' }}>Kategori</option>
+                            <option value="created_by" {{ request('sort') == 'created_by' ? 'selected' : '' }}>Pembuat</option>
+                            <option value="updated_at" {{ request('sort') == 'updated_at' ? 'selected' : '' }}>Terakhir Diperbarui</option>
+
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                            <svg class="w-2.5 h-2.5 text-black/60" viewBox="0 0 10 6" fill="currentColor">
+                                <path d="M0 0L5 6L10 0H0Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="text-sm px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-lg font-semibold"
+                >
+                    Cari
+                </button>
+            </form>
+        </div>
+
 
         <div class="overflow-hidden rounded-xl shadow-lg">
             <table class="table-fixed w-full text-left bg-amber-300 text-black rounded-xl">
@@ -63,7 +131,7 @@
 
                     @if ($moduls->isEmpty())
                     <tr>
-                        <td colspan="6" class="text-center py-4 text-gray-700">Belum ada modul ditambahkan.</td>
+                        <td colspan="6" class="text-center py-4 text-black">Belum ada modul ditambahkan.</td>
                     </tr>
                     @endif
                 </tbody>
