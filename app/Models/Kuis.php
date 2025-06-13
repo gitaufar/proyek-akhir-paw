@@ -10,12 +10,13 @@ class Kuis extends Model
     use HasFactory;
 
     protected $fillable = [
-        'materi_id',
+        'modul_id',
         'pertanyaan',
         'opsi_a',
         'opsi_b',
         'opsi_c',
         'opsi_d',
+        'nomor_kuis',
         'jawaban_benar'
     ];
 

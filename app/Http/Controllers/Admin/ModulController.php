@@ -31,6 +31,14 @@ class ModulController extends Controller
             'submoduls.*.materis' => 'required|array',
             'submoduls.*.materis.*.judul_materi' => 'required|string',
             'submoduls.*.materis.*.konten' => 'required|string',
+            'kuis' => 'nullable|array',
+            'kuis.*.pertanyaan' => 'nullable|string',
+            'kuis.*.opsi_a' => 'nullable|string',
+            'kuis.*.opsi_b' => 'nullable|string',
+            'kuis.*.opsi_c' => 'nullable|string',
+            'kuis.*.opsi_d' => 'nullable|string',
+            'kuis.*.jawaban' => 'nullable|in:A,B,C,D',
+
         ]);
 
         $modul = Modul::create([
@@ -41,6 +49,34 @@ class ModulController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        if (!empty($request->kuis) && is_array($request->kuis)) {
+            foreach ($request->kuis as $index => $kuisData) {
+                if (!empty($kuisData['pertanyaan'])) {
+                    $kuis = \App\Models\Kuis::create([
+                        'modul_id' => $modul->id,
+                        'pertanyaan' => $kuisData['pertanyaan'],
+                        'nomor_kuis' => $index + 1,
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+
+                    // Simpan pilihan jawaban
+                    $opsi = ['A' => 'opsi_a', 'B' => 'opsi_b', 'C' => 'opsi_c', 'D' => 'opsi_d'];
+                    foreach ($opsi as $key => $field) {
+                        if (!empty($kuisData[$field])) {
+                            \App\Models\PilihanJawaban::create([
+                                'kuis_id' => $kuis->id,
+                                'teks_pilihan' => $kuisData[$field],
+                                'is_benar' => ($key === $kuisData['jawaban']) ? 1 : 0,
+                                'created_at' => now(),
+                                'updated_at' => now()
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
 
 
         foreach ($request->submoduls as $submodul) {

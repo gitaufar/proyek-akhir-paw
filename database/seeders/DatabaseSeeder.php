@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(\Database\Seeders\ModulSeeder::class);
         $this->call(\Database\Seeders\TemaSeeder::class);
         $this->call(\Database\Seeders\MateriSeeder::class);
+        $this->call(\Database\Seeders\KuisSeeder::class);
     }
 }

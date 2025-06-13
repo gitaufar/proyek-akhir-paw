@@ -31,8 +31,8 @@ class MainController extends Controller
     public function showMateri(Request $request)
     {
         $selectedModul = $request->query('mod');
-        $selectedTema = $request->query("tem", 1);
-        $selectedMateri = $request->query("mat", 3);
+        $selectedTema = $request->query("tem", 0);
+        $selectedMateri = $request->query("mat", 1);
         $modul = Modul::find($selectedModul);
         $tema = $this->getTema($selectedModul);
         $materis = Materi::all();
