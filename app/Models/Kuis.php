@@ -25,7 +25,7 @@ class Kuis extends Model
         return $this->belongsTo(Modul::class);
     }
 
-    public function pilihanJawabans()
+    public function pilihanJawaban()
     {
         return $this->hasMany(PilihanJawaban::class);
     }
