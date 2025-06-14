@@ -46,7 +46,7 @@
 @endsection
 
 @section('sidebar')
-    <div class="flex flex-col gap-8 h-full w-full pl-8 pt-20">
+    <div class="flex flex-col gap-8 h-full w-full pl-8">
         @foreach ($level as $m)
 
             <a href="{{ route('list_modul.index', ['lev' => $m->id]) }}">

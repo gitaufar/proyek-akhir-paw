@@ -1522,9 +1522,9 @@
 </head>
 
 <body class="min-w-full min-h-full bg-black flex flex-row font-['Poppins']">
-    @if(Route::is('list_modul.*') || Route::is('community'))
-        <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
-            <img src="/svg/weerausaha.svg" />
+    <nav class="fixed w-screen top-0 flex flex-row justify-between items-center bg-[#2F2B2E] py-5 px-10 shadow-lg">
+        <img src="/svg/weerausaha.svg" />
+        @if(Route::is('list_modul.*') || Route::is('community'))
             <div class="flex flex-row items-center gap-12 group">
                 @if (Route::is('list_modul.*'))
                     <div class="px-2 py-2 bg-amber-300 rounded-xl">
@@ -1572,22 +1572,23 @@
                     </div>
                 @endif
             </div>
+        @endif
 
-            <div class="flex flex-row items-center gap-12">
-                <p class="text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}</p>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf </form>
 
-                <a href="#" class="text-white hover:text-red-300 transition-colors text-base font-medium font-['Poppins']"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-            </div>
-        </nav>
-    @endif
+        <div class="flex flex-row items-center gap-12">
+            <p class="text-white text-base font-medium font-['Poppins']">{{ Auth::user()->name }}</p>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf </form>
+
+            <a href="#" class="text-white hover:text-red-300 transition-colors text-base font-medium font-['Poppins']"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+        </div>
+    </nav>
 
     @if (Route::is('list_modul.*') || Route::is('modul.*') || Route::is('dashboard-admin-profile'))
-        <div class="w-[30%] h-screen bg-[#2F2B2E] pt-10 flex overflow-y-auto">
+        <div class="w-[30%] h-screen bg-[#2F2B2E] pt-30 flex overflow-y-auto">
             @yield('sidebar')
         </div>
     @endif
