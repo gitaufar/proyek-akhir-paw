@@ -53,7 +53,7 @@ class MainController extends Controller
 
     public function showComunity()
     {
-        $posts = Post::with(['author', 'likes'])->latest()->get();
+        $posts = Post::with(['author', 'likes', 'comments'])->latest()->get();
         $posts->transform(function ($post) {
             $post->formatted_timestamp = $post->created_at->format('d M Y, H:i');
             return $post;

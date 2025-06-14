@@ -18,6 +18,12 @@ class PostCard extends Component
      */
     public $likes;
 
+     /**
+     * Nama penulis post.
+     * @var string
+     */
+    public $comments;
+
     /**
      * Nama penulis post.
      * @var string
@@ -55,8 +61,9 @@ class PostCard extends Component
      * @param string $timestamp
      * @return void
      */
-    public function __construct($postUserId,$likes,$userId,$postId,$author, $content, $timestamp)
+    public function __construct($postUserId,$likes,$comments,$userId,$postId,$author, $content, $timestamp)
     {
+        $this->comments = $comments;
         $this->postUserId = $postUserId;
         $this->likes = $likes;
         $this->userId = $userId;
