@@ -72,4 +72,8 @@ class DiskusiController extends Controller
         }
     }
 
+    public function postComment(Request $request){
+
+    }
+
 }
