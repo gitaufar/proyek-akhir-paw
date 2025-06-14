@@ -45,7 +45,7 @@
 @endsection
 
 @section('sidebar')
-    <div class="w-full flex flex-col gap-5 overflow-y-auto pb-10">
+    <div class="w-full flex flex-col gap-5 overflow-y-auto pb-10 pt-20">
         <a href={{ route('list_modul.index') }} class="ml-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
                 <path

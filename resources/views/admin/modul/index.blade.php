@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<div class="min-h-screen bg-black text-white pt-24 pb-10">
+<div class="min-h-screen bg-black text-white pb-10">
     <div class="max-w-6xl mx-auto p-6 rounded-lg shadow-md">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold">Daftar Modul</h2>
@@ -146,7 +146,7 @@
         $currentRoute = Route::currentRouteName();
     @endphp
 
-    <div class="flex flex-col gap-8 h-full w-full pl-8 pt-10">
+    <div class="flex flex-col gap-8 h-full w-full pl-8">
         <a href="{{ route('modul.index') }}">
             <div class="px-4 py-3 rounded-xl w-[80%] {{ $currentRoute == 'modul.index' ? 'bg-amber-300 text-black' : 'text-white hover:bg-amber-300 hover:text-black transition-all' }}">
                 <h2 class="text-xl font-bold m-0 p-0">Daftar Modul</h2>
