@@ -41,19 +41,6 @@
             {!! $materiDipilih->konten !!}
         </div>
     </div>
-    @php
-        $lastMateri = $materis->last(); // ambil materi terakhir dari modul
-    @endphp
-
-    @if ($materiDipilih->id === $lastMateri->id)
-        <div class="mt-6 flex justify-center">
-            <button id="btn-kuis"
-                class="bg-amber-400 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-500 transition">
-                Mulai Kuis
-            </button>
-        </div>
-    @endif
-
 
 @endsection
 
