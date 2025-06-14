@@ -31,8 +31,12 @@ class MateriSeeder extends Seeder
             '',
             '',
             '',
-            '',
-            ''
+            '<p id="kuis-text">Selamat! Anda telah menyelesaikan modul ini, Untuk menguji
+kemampuan anda silahkan kerjakan kuis dengan memencet
+tombol dibawah ini! (kuis bisa dikerjakan 1 kali setiap harinya)</p>
+<div class="flex justify-center w-full"><button id="btn-kuis" class="text-base font-semibold">
+Mulai Kuis</button></div>'
+
         ];
 
         for ($i = 0; $i < count($judul); $i++) {

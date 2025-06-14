@@ -20,6 +20,15 @@
         #kuis-text {
             text-align: center;
         }
+
+        #btn-kuis {
+            background-color: #FFC700;
+            color: black;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 200px;
+        }
     </style>
 @endsection
 
@@ -63,8 +72,8 @@
                                 <a href="{{ route('list_modul.materi', ['mod' => $modul->id, 'tem' => $t->id, 'mat' => $m->id]) }}">
                                     <li @class([
                                         'py-3 mx-4 px-4 cursor-pointer',
-                                        'text-black bg-amber-300 rounded-md' => $selectedMateri == $m->id,
-                                        'text-white' => $selectedMateri != $m->id
+                                        'text-black bg-amber-300 rounded-md' => $materiDipilih->id == $m->id,
+                                        'text-white' => $materiDipilih->id != $m->id
                                     ]) data-subtema-id="{{ $t->id }}">
                                         <p class="text-[1.1rem] font-bold">
                                             {{ $m->judul_materi }}

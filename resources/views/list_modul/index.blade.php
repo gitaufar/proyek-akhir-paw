@@ -22,14 +22,22 @@
                 </div>
                 <div class="w-[19%] flex flex-col gap-1">
                     <a href={{ route('list_modul.materi', ['mod' => $s->id]) }}>
-                        <div class="flex justify-center w-full bg-amber-300 rounded-sm py-4">
-                            <p class="text-black font-semibold">Ambil Modul</p>
+                        <div class="flex justify-center w-full bg-amber-300 rounded-sm py-4 hover:scale-110 transition-all text-black">
+                            <p class="font-semibold">Ambil Modul</p>
                         </div>
                     </a>
                     <div>
-                        <div data-modul-id="{{ $s->id }}" class="cursor-pointer flex justify-center w-full bg-white rounded-sm py-4 lihat-akurasi">
-                            <p class="text-black font-semibold">Lihat Akurasi</p>
-                        </div>
+                        @if($userModulSelesai->where('modul_id', $s->id)->first())
+                            <div data-modul-id="{{ $s->id }}"
+                                class="cursor-pointer flex justify-center w-full bg-white rounded-sm py-4 lihat-akurasi text-black hover:scale-110 transition-all">
+                                <p class="font-semibold">Lihat Akurasi</p>
+                            </div>
+                        @else
+                            <div
+                                class="cursor-default flex justify-center w-full bg-white/60 rounded-sm py-4">
+                                <p class="text-black cursor-default font-semibold">Lihat Akurasi</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -43,7 +51,7 @@
 
             <a href="{{ route('list_modul.index', ['lev' => $m->id]) }}">
                 <div
-                    class="px-2 py-2 rounded-xl w-[80%] {{ $selectedIdLevel == $m->id ? 'bg-amber-300 text-black' : 'text-white' }}">
+                    class="px-2 py-2 rounded-xl w-[80%] {{ $selectedIdLevel == $m->id ? 'bg-amber-300 text-black' : 'text-white hover:bg-amber-300 hover:text-black transition-all' }}">
                     <h2 class="text-xl font-bold m-0 p-0">{{ $m->nama_level }}</h2>
                 </div>
             </a>
@@ -69,7 +77,7 @@
 
         const getModul = (modulId) => {
             for (let i = 0; i < modulSelesai.length; i++) {
-                if(modulSelesai[i].modul_id == modulId){
+                if (modulSelesai[i].modul_id == modulId) {
                     return modulSelesai[i];
                 }
             }
@@ -84,7 +92,7 @@
             const modulSelesai = getModul(modulId);
             main_container.classList.add("flex", "justify-between", "w-full", "transition-all");
             akurasi_container.classList.add("flex", "flex-col", "gap-2", "w-[80%]");
-            tot_akurasi.classList.add("flex", "flex-row", "gap-2","h-20", "w-[15%]" , "py-4", "px-4", "bg-amber-300", "items-center", "rounded-sm" , "text-base", "font-semibold" , "justify-center");
+            tot_akurasi.classList.add("flex", "flex-row", "gap-2", "h-20", "w-[15%]", "py-4", "px-4", "bg-amber-300", "items-center", "rounded-sm", "text-base", "font-semibold", "justify-center");
             console.log("Akurasi Modul ID", modulId, ":", akurasi);
             emptyContent();
             akurasi.forEach((ak, index) => {
