@@ -56,29 +56,10 @@ class DatabaseSeeder extends Seeder
         // Buat 20 postingan acak dari semua user yang ada
         Post::factory(20)->recycle($allUsers)->create();
 
-        // Ambil SEMUA post yang ada di database
-        $allPosts = Post::all();
-
-        // Hapus komentar dan like lama agar data tetap konsisten setiap kali seeding
-        DB::table('comments')->delete();
-        DB::table('likes')->delete();
-
-        // 3. Buat komentar-komentar acak
-        Comment::factory(50)->recycle($allPosts)->recycle($allUsers)->create();
-
-        // 4. Buat "likes" secara acak
-        foreach ($allPosts as $post) {
-            // Pastikan tidak mengambil user lebih banyak dari yang tersedia
-            $likeCount = rand(1, min(5, $allUsers->count()));
-            $usersWhoLiked = $allUsers->random($likeCount)->pluck('id');
-            
-            foreach ($usersWhoLiked as $userId) {
-                DB::table('likes')->insertOrIgnore([
-                    'user_id' => $userId,
-                    'post_id' => $post->id,
-                    'created_at' => now(),
-                ]);
-            }
-        }
+        // Panggil seeder modul, tema, materi
+        $this->call(\Database\Seeders\ModulSeeder::class);
+        $this->call(\Database\Seeders\TemaSeeder::class);
+        $this->call(\Database\Seeders\MateriSeeder::class);
+        $this->call(\Database\Seeders\KuisSeeder::class);
     }
 }

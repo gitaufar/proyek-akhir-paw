@@ -46,6 +46,35 @@
                 <button type="button" id="add-submodul" class="mt-2 text-sm text-green-400">+ Tambah Submodul</button>
             </div>
 
+            <!-- Form Input Kuis -->
+            <div class="mb-4 mt-6">
+                <label class="block text-white text-sm font-bold mb-2">Kuis untuk Modul</label>
+                <div id="kuis-container">
+                    <div class="kuis-item mb-4 bg-gray-700 p-4 rounded">
+                        <input type="text" name="kuis[0][pertanyaan]" placeholder="Pertanyaan Kuis" class="w-full mb-2 px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                        
+                        <div class="grid grid-cols-2 gap-2 mb-2">
+                            <input type="text" name="kuis[0][opsi_a]" placeholder="Opsi A" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                            <input type="text" name="kuis[0][opsi_b]" placeholder="Opsi B" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                            <input type="text" name="kuis[0][opsi_c]" placeholder="Opsi C" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                            <input type="text" name="kuis[0][opsi_d]" placeholder="Opsi D" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                        </div>
+
+                        <label class="block text-white text-sm font-bold mb-1">Jawaban Benar</label>
+                        <select name="kuis[0][jawaban]" class="w-full px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                            <option value="">Pilih Jawaban</option>
+                            <option value="A">Opsi A</option>
+                            <option value="B">Opsi B</option>
+                            <option value="C">Opsi C</option>
+                            <option value="D">Opsi D</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="button" id="add-kuis" class="mt-2 text-sm text-green-400">+ Tambah Soal Kuis</button>
+            </div>
+
+
             <!-- Submit -->
             <div class="flex justify-end">
                 <button type="submit" class="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded text-white font-semibold">Simpan Modul</button>
@@ -91,4 +120,36 @@
         }
     });
 </script>
+
+<script>
+    let kuisIndex = 1;
+
+    document.getElementById('add-kuis').addEventListener('click', () => {
+        const container = document.getElementById('kuis-container');
+        const kuisHTML = `
+            <div class="kuis-item mb-4 bg-gray-700 p-4 rounded">
+                <input type="text" name="kuis[${kuisIndex}][pertanyaan]" placeholder="Pertanyaan Kuis" class="w-full mb-2 px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <input type="text" name="kuis[${kuisIndex}][opsi_a]" placeholder="Opsi A" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <input type="text" name="kuis[${kuisIndex}][opsi_b]" placeholder="Opsi B" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <input type="text" name="kuis[${kuisIndex}][opsi_c]" placeholder="Opsi C" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <input type="text" name="kuis[${kuisIndex}][opsi_d]" placeholder="Opsi D" class="px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                </div>
+
+                <label class="block text-white text-sm font-bold mb-1">Jawaban Benar</label>
+                <select name="kuis[${kuisIndex}][jawaban]" class="w-full px-4 py-2 bg-gray-600 text-white rounded border border-gray-500">
+                    <option value="">Pilih Jawaban</option>
+                    <option value="A">Opsi A</option>
+                    <option value="B">Opsi B</option>
+                    <option value="C">Opsi C</option>
+                    <option value="D">Opsi D</option>
+                </select>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', kuisHTML);
+        kuisIndex++;
+    });
+</script>
+
 @endsection
