@@ -140,3 +140,23 @@
     </div>
 </div>
 @endsection
+
+@section('sidebar')
+    @php
+        $currentRoute = Route::currentRouteName();
+    @endphp
+
+    <div class="flex flex-col gap-8 h-full w-full pl-8 pt-10">
+        <a href="{{ route('modul.index') }}">
+            <div class="px-4 py-3 rounded-xl w-[80%] {{ $currentRoute == 'modul.index' ? 'bg-amber-300 text-black' : 'text-white hover:bg-amber-300 hover:text-black transition-all' }}">
+                <h2 class="text-xl font-bold m-0 p-0">Daftar Modul</h2>
+            </div>
+        </a>
+
+        <a href="{{ url('/dashboard-admin-profile') }}">
+            <div class="px-4 py-3 rounded-xl w-[80%] {{ request()->is('dashboard-admin-profile') ? 'bg-amber-300 text-black' : 'text-white hover:bg-amber-300 hover:text-black transition-all' }}">
+                <h2 class="text-xl font-bold m-0 p-0">Profil Admin</h2>
+            </div>
+        </a>
+    </div>
+@endsection

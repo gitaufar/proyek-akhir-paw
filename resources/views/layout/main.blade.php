@@ -1581,7 +1581,7 @@
             </a>
         </div>
     </nav>
-    @if (Route::is('list_modul.*'))
+    @if (Route::is('list_modul.*') || Route::is('modul.*') || Route::is('dashboard-admin-profile'))
         <div class="w-[30%] h-screen bg-[#2F2B2E] pt-30 flex overflow-y-auto">
             @yield('sidebar')
         </div>
