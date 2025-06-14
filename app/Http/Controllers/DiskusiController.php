@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Like;
+use App\Models\Comment;
 
 class DiskusiController extends Controller
 {
@@ -73,6 +74,15 @@ class DiskusiController extends Controller
     }
 
     public function postComment(Request $request){
+        $userId = $request->input('userId');
+        $postId = $request->input('postId');
+        $content = $request->input('content');
+
+        $comment = Comment::create([
+            'user_id' => $userId,
+            'post_id' => $postId,
+            'content' => $content,
+        ]);
 
     }
 

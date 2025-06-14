@@ -79,3 +79,4 @@ Route::post('/like', [DiskusiController::class, 'postLike']);
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
 Route::post('/ask', [DiskusiController::class, 'storePost'])->name('ask');
 Route::delete('/post/{id}', [DiskusiController::class, 'deletePost'])->name('post.delete');
+Route::post('/post-comment', [DiskusiController::class, 'postComment'])->name('post-comment');
