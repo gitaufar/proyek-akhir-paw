@@ -1528,43 +1528,28 @@
 
     {{-- Side bar --}}
     <div class="absolute w-1/4 h-screen bg-[#2F2B2E] flex">
-        <div class="mt-40 w-full flex flex-col items-center gap-10">
-            <div class="w-3/4 h-15 flex flex-row bg-[#2F2B2E] rounded-xl">
-                <div class="w-15 h-15">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="full" height="full" viewBox="0 0 40 40" fill="none">
-                        <path
-                            d="M20 5L1.66669 15L8.33335 18.6333V28.6333L20 35L31.6667 28.6333V18.6333L35 16.8167V28.3333H38.3334V15L20 5ZM31.3667 15L20 21.2L8.63335 15L20 8.8L31.3667 15ZM28.3334 26.6667L20 31.2L11.6667 26.6667V20.45L20 25L28.3334 20.45V26.6667Z"
-                            fill="white" />
-                    </svg>
+        <div class="mt-30 w-full  flex flex-col items-center gap-10">
+            <div class="mt-5 w-3/4 h-screen  flex flex-col items-center gap-10">
+                <p class="w-80 text-[18px] font-semibold text-white font-['Poppins'] ml-3 mt-3">PILIH LEVEL MODUL</p>
+                <div class="w-full h-12 bg-amber-300 rounded-xl flex flex-row justify-start">
+                    <p class="w-80 text-[17px] font-semibold text-black font-['Poppins'] ml-3 mt-3">Modul Pengenalan</p>
                 </div>
-                <div class="w-60 h-20 items-center">
-                    <p class="w-80 text-2xl font-semibold text-white font-['Poppins'] ml-3 mt-3">Modul</p>
+                <div class="w-full h-12 bg-[#C4C4C4] rounded-xl flex flex-row justify-start">
+                    <p class="w-80 text-[17px] font-semibold text-black font-['Poppins'] ml-3 mt-3">Modul Pemula</p>
                 </div>
-            </div>
-
-            <div class="w-3/4 h-15 flex flex-row rounded-xl items">
-                <div class="w-15 h-15">
-                    <svg class="w-25 h-25" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 40 40">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z fill=" black" />
-                    </svg>
+                <div class="w-full h-12 bg-[#C4C4C4] rounded-xl flex flex-row justify-start">
+                    <p class="w-80 text-[17px] font-semibold text-black font-['Poppins'] ml-3 mt-3">Modul Intermediate</p>
                 </div>
-                <div class="w-60 h-20 items-center">
-                    <p class="w-80 text-2xl font-semibold text-white font-['Poppins'] ml-3 mt-3">User</p>
-                </div>
-            </div>
-            <div class="rounded-xl w-3/4 h-18 flex flex-row bg-amber-300">
-                <div class="w-15 h-15 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="black" d="M14 15q.425 0 .738-.313t.312-.737q0-.425-.313-.737T14 12.9q-.425 0-.738.313t-.312.737q0 .425.313.738T14 15Zm0-3.2q.275 0 .513-.2t.287-.525q.05-.3.212-.55t.588-.675q.75-.75 1-1.213t.25-1.087q0-1.125-.788-1.838T14 5q-.825 0-1.5.375T11.425 6.45q-.15.25-.025.525t.425.4q.275.125.538.025t.437-.35q.225-.325.525-.487T14 6.4q.6 0 .975.338t.375.912q0 .35-.2.663t-.7.787q-.725.625-.925.963t-.25.987q-.025.3.188.525T14 11.8ZM8 18q-.825 0-1.413-.588T6 16V4q0-.825.588-1.413T8 2h12q.825 0 1.413.588T22 4v12q0 .825-.588 1.413T20 18H8Zm-4 4q-.825 0-1.413-.588T2 20V7q0-.425.288-.713T3 6q.425 0 .713.288T4 7v13h13q.425 0 .713.288T18 21q0 .425-.288.713T17 22H4Z" />
-                    </svg>
-                </div>
-                <div class="w-60 h-20">
-                    <p class="w-80 text-2xl font-semibold text-black font-['Poppins'] ml-4 mt-5">Quiz</p>
+                <div class="w-full h-12 bg-[#C4C4C4] rounded-xl flex flex-row justify-start">
+                    <p class="w-80 text-[17px] font-semibold text-black font-['Poppins'] ml-3 mt-3">Modul Expert</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="absolute w-1/4 h-screen mt-200 bg-[#2F2B2E] flex">
+        <div class=" w-full  flex flex-col items-center gap-10">
+
+        </div>
     </div>
 
     {{-- Main container --}}
