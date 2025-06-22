@@ -143,9 +143,5 @@
         const emptyContent = () => {
             content.innerHTML = "";
         };
-
-        const loadModul = () => {
-
-        }
     </script>
 @endsection
