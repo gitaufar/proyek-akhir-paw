@@ -1,11 +1,13 @@
 <?php
 
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -59,11 +61,32 @@ class User extends Authenticatable
     }
 
     public function moduls()
-{
-    return $this->belongsToMany(Modul::class, 'user_modul_selesai')
-                ->withPivot('tanggal_selesai', 'nilai')
-                ->withTimestamps();
-}
+    {
+        return $this->belongsToMany(Modul::class, 'user_modul_selesai')
+            ->withPivot('tanggal_selesai', 'nilai')
+            ->withTimestamps();
+    }
+
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
+     * Relasi one-to-many: Seorang User memiliki banyak Comment.
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Relasi one-to-many: Seorang User memiliki banyak Like.
+     */
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
 
 
 }

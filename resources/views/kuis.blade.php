@@ -11,12 +11,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 
-<body class="w-full h-screen bg-black flex flex-col font-['Poppins']">
-    <div class="hidden">
-
-    </div>
+<body class="w-full h-screen bg-black flex flex-col font-['Poppins']">            
     <header class="w-full px-8 pt-7 flex items-center">
         <nav class="w-full justify-between flex bg-black items-center">
             <div class="flex flex-row gap-8">
@@ -27,7 +30,7 @@
                             fill="#1E1E1E" />
                     </svg>
                 </div>
-                <div class="py-4 px-8 bg-[#2F2B2E] flex flex-row items-center gap-5 rounded-md">
+                <div class="py-4 px-8 bg-[#2F2B2E] flex flex-row items-center gap-5 rounded-md" id="nomor-kuis">
                     <p class="text-white text-2xl font-mono">{{ $soalKuis[0]->nomor_kuis }} / {{ $soalKuis->count() }}
                     </p>
                 </div>
@@ -42,11 +45,9 @@
                 <p class="text-white text-2xl font-bold font-mono">
                     <span id="minutes">10</span> :
                     <span id="seconds">00</span>
-                </p>
             </div>
         </nav>
     </header>
-
     <div class="flex flex-col min-h-full">
         <div class="w-full flex justify-center items-center pertanyaan flex-1" id="soal-container">
             <p class="text-3xl text-white font-bold">{{ $soalKuis[0]->pertanyaan }}</p>
@@ -54,6 +55,7 @@
 
         <div class="w-full grid grid-cols-2 justify-center items-center flex-1 gap-5 px-5 pb-3" id="daftar-jawaban">
 
+        </div>
         </div>
     </div>
 
@@ -66,8 +68,24 @@
         let totalMinutes = parseInt(minutesLabel.textContent, 10);
         const userId = @json($userId);
         const soalKuis = @json($soalKuis->toArray());
+        const modulId = @json($modul->id);
+        let nilai = 0;
+        const nilaiPerBenar = 100 / soalKuis.length;
         let quizSekarang = 0;
         let timerId;
+
+        const updateQuizCount = () => {
+            const nomorKuis = document.getElementById("nomor-kuis");
+            nomorKuis.innerHTML = "";
+            const p = document.createElement("p");
+            p.classList.add("text-white", "text-2xl", "font-mono");
+            let nomorSekarang = quizSekarang + 1;
+            if (nomorSekarang > soalKuis.length) {
+                nomorSekarang = soalKuis.length;
+            }
+            p.textContent = `${nomorSekarang} / ${soalKuis.length}`
+            nomorKuis.appendChild(p);
+        }
 
         function startTimer() {
             timerId = setInterval(setTime, 1000);
@@ -105,9 +123,9 @@
                 const div = document.createElement("div");
                 div.classList.add("flex", "justify-center", "items-center", "text-3xl", "font-bold",
                     "border", "border-[rgba(254,221,92,0.30)]", "w-full", "h-full", "px-2",
-                    "hover:bg-[rgba(254,221,92,0.30)]", "text-[rgba(254,221,92,0.50)]", "hover:text-[#FEDD5C]", "cursor-pointer", "text-center");
+                    "hover:bg-[rgba(254,221,92,0.30)]", "text-[rgba(254,221,92,0.50)]", "hover:text-[#FEDD5C]", "cursor-pointer", "text-center" , "transition-all");
                 div.innerHTML = j.teks_pilihan;
-                div.addEventListener("click", function () {
+                div.addEventListener("click", async function () {
                     const jawaban = [
                         {
                             "userId": userId,
@@ -119,6 +137,7 @@
                     postJawaban(soalKuis[quizSekarang].id, userId, j.is_benar, j.teks_pilihan);
                     console.log("jawaban", jawaban);
                     if (j.is_benar) {
+                        nilai += nilaiPerBenar;
                         console.log("benar");
                         div.classList.remove("hover:bg-[rgba(254,221,92,0.30)]", "border-[rgba(254,221,92,0.30)]", "border", "text-[rgba(254,221,92,0.50)]", "hover:text-[#FEDD5C]");
                         div.classList.add("bg-green-500", "text-white");
@@ -128,15 +147,38 @@
                         div.classList.add("bg-red-500", "text-white");
                     }
                     ++quizSekarang;
+                    updateQuizCount();
                     if (quizSekarang < soalKuis.length) {
                         ambilJawaban(soalKuis[quizSekarang].id);
                     } else {
+                        await postQuizSelesai(userId, modulId, nilai);
                         window.location.href = "{{ route('list_modul.index') }}";
                     }
                 })
                 container.appendChild(div);
             });
         }
+
+        const postQuizSelesai = async (idUser, idModul, nilai) => {
+            console.log("kepangill");
+            try {
+                const response = await fetch('/api/quiz-selesai', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({ idUser, idModul, nilai })
+                });
+
+                const data = await response.json();
+                console.log("Quiz selesai:", data);
+            } catch (error) {
+                console.error("Gagal post quiz selesai:", error);
+            }
+        };
+
 
         function ambilJawaban(idKuis) {
             fetch(`/api/jawaban/${idKuis}`)
@@ -146,40 +188,35 @@
                     setTimeout(() => {
                         loadJawaban(data);
                         loadSoal(soalKuis[quizSekarang]);
-                    }, 500); // Delay 500ms
+                    }, 500);
                 })
                 .catch(error => console.error("Gagal ambil jawaban:", error));
         }
 
-        function postJawaban(idKuis, idUser, isBenar, jawaban) {
-            const payload = {
-                idKuis: idKuis,
-                idUser: idUser,
-                isBenar: isBenar,
-                jawaban: jawaban
-            };
-            console.log("payload", payload);
-            fetch('/api/jawaban', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': token,
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify(payload)
-            })
-                .then(async response => {
-                    if (!response.ok) {
-                        const text = await response.text();
-                        throw new Error(`HTTP error ${response.status}: ${text}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Jawaban berhasil dikirim:", data);
-                })
-                .catch(error => console.error("Gagal mengirim jawaban:", error));
+        async function postJawaban(idKuis, idUser, isBenar, jawaban) {
+            try {
+                const response = await fetch('/api/jawaban', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({ idKuis, idUser, isBenar, jawaban })
+                });
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    throw new Error(`HTTP ${response.status}: ${text}`);
+                }
+
+                const data = await response.json();
+                console.log("Jawaban berhasil dikirim:", data);
+            } catch (error) {
+                console.error("Gagal mengirim jawaban:", error);
+            }
         }
+
 
 
         function loadSoal(soal) {
@@ -199,7 +236,6 @@
         });
 
     </script>
-
 
 </body>
 

@@ -43,15 +43,20 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            Auth::login(Auth::user());
-            return redirect()->intended('/list_modul');
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect()->intended('/admin/modul');
+            } else {
+                return redirect()->intended('/list_modul');
+            }
         }
 
-        // Jika gagal login
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ]);
     }
+
 
     public function logout()
     {

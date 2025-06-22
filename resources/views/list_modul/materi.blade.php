@@ -20,11 +20,20 @@
         #kuis-text {
             text-align: center;
         }
+
+        #btn-kuis {
+            background-color: #FFC700;
+            color: black;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 200px;
+        }
     </style>
 @endsection
 
 @section('content')
-    <div class="w-[70%] h-screen pt-35 flex overflow-y-auto text-white flex-col isi-content gap-2 px-12">
+    <div class="w-[70%] h-screen pt-35 flex overflow-y-auto text-white flex-col isi-content gap-2 px-10">
         <div class="w-full justify-center items-center pb-8 px-">
             <h1 class="text-center">"{{ $materiDipilih->judul_materi }}"</h1>
         </div>
@@ -32,6 +41,7 @@
             {!! $materiDipilih->konten !!}
         </div>
     </div>
+
 @endsection
 
 @section('sidebar')
@@ -63,8 +73,8 @@
                                 <a href="{{ route('list_modul.materi', ['mod' => $modul->id, 'tem' => $t->id, 'mat' => $m->id]) }}">
                                     <li @class([
                                         'py-3 mx-4 px-4 cursor-pointer',
-                                        'text-black bg-amber-300 rounded-md' => $selectedMateri == $m->id,
-                                        'text-white' => $selectedMateri != $m->id
+                                        'text-black bg-amber-300 rounded-md' => $materiDipilih->id == $m->id,
+                                        'text-white' => $materiDipilih->id != $m->id
                                     ]) data-subtema-id="{{ $t->id }}">
                                         <p class="text-[1.1rem] font-bold">
                                             {{ $m->judul_materi }}
