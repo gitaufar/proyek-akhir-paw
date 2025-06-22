@@ -14,9 +14,7 @@ Route::get('/', function () {
 
 // Autentikasi
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::get('/list_modul', [MainController::class, 'showLevel'])->name('list_modul.index');
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
-Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
 Route::get('/materi/{id}', [MainController::class, 'getMateriAjax'])->name('materi');
 Route::get('/kuis', [KuisController::class, 'showKuis'])->name('kuis');
 
@@ -67,10 +65,10 @@ Route::get('/materi/{id}', [MainController::class, 'getMateriAjax'])->name('mate
 Route::get('/kuis', [KuisController::class, 'showKuis'])->name('kuis');
 Route::get('/api/jawaban/{idKuis}', [KuisController::class, 'getJawaban']);
 Route::post('/api/jawaban', [KuisController::class, 'postJawaban']);
-Route::post('/like', [DiskusiController::class, 'postLike']);
 
 // Komunitas
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
 Route::post('/ask', [DiskusiController::class, 'storePost'])->name('ask');
 Route::delete('/post/{id}', [DiskusiController::class, 'deletePost'])->name('post.delete');
 Route::post('/post-comment', [DiskusiController::class, 'postComment'])->name('post-comment');
+Route::post('/like', [DiskusiController::class, 'postLike']);
