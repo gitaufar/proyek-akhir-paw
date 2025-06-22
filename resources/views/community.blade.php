@@ -189,8 +189,8 @@
 
             textArea.addEventListener('input', adjustHeight);
 
-            form.method = 'POST';
-            form.action = action || 'post-comment';
+            // form.method = 'POST';
+            // form.action = action || 'post-comment';
             textArea.placeholder = placeholder;
             textArea.name = 'content';
             textArea.rows = 1;

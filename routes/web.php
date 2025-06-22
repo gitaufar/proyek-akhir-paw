@@ -7,16 +7,12 @@ use App\Http\Controllers\KuisController;
 use App\Http\Controllers\Admin\ModulController;
 use App\Http\Controllers\DiskusiController;
 
-// =====================
 // Halaman Awal
-// =====================
 Route::get('/', function () {
     return view('login');
 });
 
-// =====================
 // Autentikasi
-// =====================
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::get('/list_modul', [MainController::class, 'showLevel'])->name('list_modul.index');
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
@@ -30,9 +26,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
-// =====================
-// Dashboard (Autentikasi Diperlukan)
-// =====================
+// Dashboard
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -64,24 +58,18 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-// =====================
 // Modul & Materi
-// =====================
 Route::get('/list_modul', [MainController::class, 'showLevel'])->name('list_modul.index');
 Route::get('/list_modul/materi', [MainController::class, 'showMateri'])->name('list_modul.materi');
 Route::get('/materi/{id}', [MainController::class, 'getMateriAjax'])->name('materi');
 
-// =====================
 // Kuis
-// =====================
 Route::get('/kuis', [KuisController::class, 'showKuis'])->name('kuis');
 Route::get('/api/jawaban/{idKuis}', [KuisController::class, 'getJawaban']);
 Route::post('/api/jawaban', [KuisController::class, 'postJawaban']);
 Route::post('/like', [DiskusiController::class, 'postLike']);
 
-// =====================
 // Komunitas
-// =====================
 Route::get('/community', [MainController::class, 'showComunity'])->name('community');
 Route::post('/ask', [DiskusiController::class, 'storePost'])->name('ask');
 Route::delete('/post/{id}', [DiskusiController::class, 'deletePost'])->name('post.delete');

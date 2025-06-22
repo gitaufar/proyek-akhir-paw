@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<div class="min-h-screen bg-gray-900 text-white flex items-center justify-center py-10">
+<div class="min-h-screen bg-gray-900 text-white flex items-center justify-center py-10 w-full pt-30">
     <div class="w-full max-w-4xl bg-gray-800 rounded-lg shadow-md p-10">
         <h2 class="text-3xl font-bold mb-6 text-center">Tambah Modul Baru</h2>
         <form action="{{ route('modul.store') }}" method="POST">
